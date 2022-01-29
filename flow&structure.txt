@@ -1,0 +1,34 @@
+A) Upon load/refresh
+
+app.js –> <– storage.js
+Get location from local storage or default
+
+app.js –> <– weather.js
+Init weather object from weather class (passing in location data)
+
+app.js -> <- weather.js
+Upon page load/refresh call weather.getWeather() method, and retrieve results - weather data (json) - from weather api, pertaining to the location specified 
+
+app.js -> ui.js
+Call paint.ui() method, passing in results, 
+
+B) User changes location data via click event:
+ 
+Part 1. app.js -> weather
+User's inputted location data are assigned to variables. Then the weather.changeLocation() method is called, with user's location data passed in. 
+
+Part 2. app.js -> <- weather
+weather.getWeather() method is called, returning a promise resolved to json data pertaining to user defined location 
+
+Part 3. app.js -> storage.js
+The storage.setLocationData() method is called passing in the new location data, to built in method localStorage.setItem.  
+
+A)
+Now upon refresh/load user data remains
+
+Done.
+
+
+
+
+
